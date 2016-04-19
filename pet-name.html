@@ -35,14 +35,23 @@
     <!--REGULAR EXPRESSION CODE IN HERE-->
     <script>
         $(document).ready(function(){
+            $("#response").hide(); 
             $("form").submit(function(event){
                 event.preventDefault();
                 namePattern = new RegExp(/^[A-Z][a-z]{2,6}$/);
                 var name = $('#pet').val();
                 if (namePattern.test(name)) {
+                    $("#response").show(); 
                     $('#response').html("<h1>Hi, my name is, " + name + " !</h1>");
                  } else {
+                    $("#response").show(); 
                      $('#response').html('<h3 class="bad-name">Sorry, my name must meet the following conditions, <br><br><span class="instructions">Start with a capital letter, followed by 2-6 lowercase letters <i>only<i>.</span></h3>');
+                     $('#pet').attr('disabled', true)
+                     setTimeout(function(){ 
+                        $('#pet').attr('disabled', false) 
+                        $("#response").hide();
+                    }, 5000);
+
                  }
 
             });
