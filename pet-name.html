@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <title>My Pet Name</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<body>
+    <div class="container">
+    <form>
+        <label for="pet name">Name My Pet Please</label>
+        <input type=text name="my-pet" id="pet">
+        <input type="submit" value="Name It!"> 
+    </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            // $("#pet").click(function(){
+            //     alert('hello');
+            // });
+
+            $("form").submit(function(event){
+                //alert('form submitted');
+                //.preventDefault();
+                var name = $('#pet').val();
+                if (name == "hello") {
+                    alert('hi!');
+                } else {
+                    alert('sorry');
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
