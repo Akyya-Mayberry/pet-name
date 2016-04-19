@@ -13,6 +13,9 @@
     <style>
         #response {color: rgb(228, 94, 116);}
         .bad-name {color: red;}
+        #pet-img {position: fixed; bottom: 0; right: -200px; width: 800px; z-index: -900;}
+        .instructions {color: rgb(79, 94, 116);}
+
     </style>
 <body>
     <div class="container">
@@ -23,8 +26,8 @@
             <input type="submit" class="btn btn-info" value="Name Me!">
         </form>
         <div id="response"></div>
-        <div>
-            <img class="img-responsive" src="http://www.grit.com/~/media/Images/GRT/Editorial/Articles/Magazine%20Articles/2012/02-01/Popular%20Show%20%20Pet%20Rabbit%20Breeds/Lop-Eared-Rabbit-Laying-Dow.jpg" alt="pic of pet">
+            <div id="myPet">
+            <img class="img-responsive" id="pet-img" src="http://www.grit.com/~/media/Images/GRT/Editorial/Articles/Magazine%20Articles/2012/02-01/Popular%20Show%20%20Pet%20Rabbit%20Breeds/Lop-Eared-Rabbit-Laying-Dow.jpg" alt="pic of pet">
         </div> 
 
     </div>
@@ -32,23 +35,14 @@
     <!--REGULAR EXPRESSION CODE IN HERE-->
     <script>
         $(document).ready(function(){
-            // $("#pet").click(function(){
-            //     alert('hello');
-            // });
-
-           // alert('hello');
-
             $("form").submit(function(event){
-                //alert('form submitted');
                 event.preventDefault();
-                //var namePattern = /^[A-Z][a-z]{5,8}$/
                 namePattern = new RegExp(/^[A-Z][a-z]{2,6}$/);
-                //var namePattern = /^[A-Z]/;
                 var name = $('#pet').val();
                 if (namePattern.test(name)) {
                     $('#response').html("<h1>Hi, my name is, " + name + " !</h1>");
                  } else {
-                     $('#response').html('<h3 class="bad-name">Sorry, my name must meet the following conditions, <br><span class="instructions">Start with a capital letter, followed by 2-6 lowercase.</span></h3>');
+                     $('#response').html('<h3 class="bad-name">Sorry, my name must meet the following conditions, <br><br><span class="instructions">Start with a capital letter, followed by 2-6 lowercase letters <i>only<i>.</span></h3>');
                  }
 
             });
