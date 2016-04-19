@@ -38,7 +38,9 @@
             $("#response").hide(); 
             $("form").submit(function(event){
                 event.preventDefault();
+                //THE ACTUAL REGULAR EXPRESSION
                 namePattern = new RegExp(/^[A-Z][a-z]{2,6}$/);
+                //END OF THE ACTUAL REGULAR EXPRESSION
                 var name = $('#pet').val();
                 if (namePattern.test(name)) {
                     $("#response").show(); 
@@ -51,9 +53,7 @@
                         $('#pet').attr('disabled', false) 
                         $("#response").hide();
                     }, 5000);
-
                  }
-
             });
         });
     </script>
